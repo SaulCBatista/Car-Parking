@@ -12,9 +12,9 @@ This project simulates the operation of a parking lot with a limited number of a
 
 The project is implemented in Java and consists of the following main classes:
 
-- **SynchronizedCounter**: Simulates the behavior of a counting semaphore, which manages the number of available slots in the parking lot. It controls access safely, ensuring that the number of slots is correctly decremented when a vehicle enters and incremented when a vehicle exits.
+- **Semaphore**: Simulates the behavior of a counting semaphore, which manages the number of available slots in the parking lot. It controls access safely, ensuring that the number of slots is correctly decremented when a vehicle enters and incremented when a vehicle exits.
   
-- **ParkingLot**: This class manages the parking lot's entry and exit operations. It uses the `SynchronizedCounter` to check if there are available slots and, if not, notifies the vehicle to "drive around the block" until a slot is available.
+- **ParkingLot**: This class manages the parking lot's entry and exit operations. It uses the `Semaphore` to check if there are available slots and, if not, notifies the vehicle to "drive around the block" until a slot is available.
   
 - **Vehicle**: Each vehicle is represented by a thread. When a vehicle tries to enter the parking lot, it checks if there are available slots. If there are, it occupies a slot; otherwise, it waits until a slot is available. After a period of time, the vehicle exits the parking lot, freeing up the slot.
 
@@ -26,7 +26,7 @@ The project is implemented in Java and consists of the following main classes:
 
 - **Vehicle Exit**: After a period of time, the vehicle exits the parking lot, freeing up the slot and allowing other vehicles to enter.
 
-- **Synchronization**: The use of `SynchronizedCounter` and `synchronized` in the `ParkingLot` class ensures that vehicle entry and exit operations are synchronized, preventing race conditions and ensuring that the number of available slots is always accurate.
+- **Synchronization**: The use of `Semaphore` and `synchronized` in the `ParkingLot` class ensures that vehicle entry and exit operations are synchronized, preventing race conditions and ensuring that the number of available slots is always accurate.
 
 ## How to Run
 
